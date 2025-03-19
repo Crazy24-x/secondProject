@@ -39,8 +39,7 @@ export default class RandomPlanet extends Component {
             error: true
         });
     }
-
-
+    
     updatePlanet = () => {
         let id = 20;
         while (id === 20 ) {
