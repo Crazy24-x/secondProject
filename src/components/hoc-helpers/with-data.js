@@ -8,7 +8,8 @@ const withData = (View) => {
         state = {
             data: null,
             loading: true,
-            error: false        }
+            error: false
+        }
 
         componentDidUpdate(prevProps) {
             if (this.props.getData !== prevProps.getData) {
@@ -29,7 +30,7 @@ const withData = (View) => {
             this.props.getData()
                 .then((data) => { this.setState({ data, loading: false })})
                 .catch(() => this.setState({ error: true, loading: false }))
-            }
+        }
 
         render() {
             const { data, error, loading } = this.state

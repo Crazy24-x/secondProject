@@ -3,6 +3,7 @@ import React from "react"
 import { withData, withSwapiService, withChildFunction, compose } from "../hoc-helpers"
 import ItemList from "../item-list"
 
+
 const renderNameAndGender = ({name, gender}) =>
     <span>{name}, &nbsp;{gender}</span>
 
