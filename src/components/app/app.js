@@ -12,7 +12,7 @@ import {SwapiServiceProvider} from "../swapi-service-context";
 import SwapiService from "../../services/swapi-service"
 import {PeoplePage, PlanetsPage, StarshipsPage, LoginPage, SecretPage, WelcomePage} from "../pages"
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import StarshipDetails from "../sw-components/starship-details";
 
 export default class App extends Component {
@@ -49,7 +49,7 @@ export default class App extends Component {
                         <div className="stardb-app">
                             <Header/>
                             <RandomPlanet />
-                            <Switch>
+                            <Routes>
                                 <Route path="/" component={WelcomePage} exact />
 
                                 <Route path="/people/:id?" component={PeoplePage} exact/>
@@ -72,7 +72,7 @@ export default class App extends Component {
                                 )} exact />
 
                                 <Route component={NotFoundIndicator}/>
-                            </Switch>
+                            </Routes>
                         </div>
                     </Router>                </SwapiServiceProvider>
             </ErrorBoundary>
