@@ -1,57 +1,65 @@
-import React from "react"
+import React from "react";
 
-import { withData, withSwapiService, withChildFunction, compose } from "../hoc-helpers"
-import ItemList from "../item-list"
+import {
+    withData,
+    withSwapiService,
+    withChildFunction,
+    compose,
+} from "../hoc-helpers";
+import ItemList from "../item-list";
 
+const renderNameAndGender = ({ name, gender }) => (
+    <span>
+    {name}, &nbsp;{gender}
+  </span>
+);
 
-const renderNameAndGender = ({name, gender}) =>
-    <span>{name}, &nbsp;{gender}</span>
+const renderNameAndModel = ({ name, model }) => (
+    <span>
+    <span>
+      {name}, &nbsp;{model}
+    </span>
+  </span>
+);
 
-const renderNameAndModel = ({ name, model }) =>
-    <span>{name}, &nbsp;{model}</span>
-
-const renderNameAndPopulation = ({ name, population }) =>
-    <span>{name}, &nbsp;{population} {population !== 'unknown' ? 'people' : null}</span>
-
+const renderNameAndPopulation = ({ name, population }) => (
+    <span>
+    {name}, &nbsp;{population} {population !== "unknown" ? "people" : null}
+  </span>
+);
 
 const mapPersonMethodsToProps = (swapiService) => {
     return {
-        getData: swapiService.getAllPeople
-    }
-}
+        getData: swapiService.getAllPeople,
+    };
+};
 const mapPlanetMethodsToProps = (swapiService) => {
     return {
-        getData: swapiService.getAllPlanets
-    }
-}
+        getData: swapiService.getAllPlanets,
+    };
+};
 const mapStarshipMethodsToProps = (swapiService) => {
     return {
-        getData: swapiService.getAllStarships
-    }
-}
-
+        getData: swapiService.getAllStarships,
+    };
+};
 
 const PersonList = compose(
     withSwapiService(mapPersonMethodsToProps),
     withData,
     withChildFunction(renderNameAndGender)
-)(ItemList)
+)(ItemList);
 
 const PlanetList = compose(
     withSwapiService(mapPlanetMethodsToProps),
     withData,
     withChildFunction(renderNameAndPopulation)
-)(ItemList)
+)(ItemList);
 
 const StarshipList = compose(
     withSwapiService(mapStarshipMethodsToProps),
     withData,
     withChildFunction(renderNameAndModel)
-)(ItemList)
+)(ItemList);
 
-
-export {
-    PersonList,
-    PlanetList,
-    StarshipList
-}
+export { PersonList, PlanetList, StarshipList };

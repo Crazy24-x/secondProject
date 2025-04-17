@@ -1,16 +1,16 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 import { PersonDetails, PersonList } from "../sw-components";
-import Row from "../row";
+import Row from "../Row";
 
 const PeoplePage = () => {
-    const navigate = useNavigate();  // Replaces `history`
-    const { id } = useParams();      // Replaces `match.params`
+    const { id } = useParams();
+    const navigate = useNavigate();
 
     return (
         <Row
-            left={<PersonList onItemSelected={(id) => navigate(id)} />}
+            left={<PersonList onItemSelected={(id) => navigate(`/people/${id}`)} />}
             right={<PersonDetails itemId={id} />}
         />
     );

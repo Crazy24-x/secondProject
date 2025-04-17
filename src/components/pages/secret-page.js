@@ -10,7 +10,7 @@ const SecretPage = ({ isLoggedIn }) => {
         );
     }
 
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/login" />;
 };
 
 export default SecretPage;

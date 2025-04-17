@@ -1,15 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { StarshipList } from "../sw-components";
-import Row from "../row";
+import Row from "../Row";
 import StarshipIntro from "../starship-intro";
 
-const StarshipsPage = () => {
+const StarshipsPage = ( {history} ) => {
     const navigate = useNavigate();
 
     return (
         <Row
-            left={<StarshipList onItemSelected={(itemId) => navigate(itemId)} />}
+            left={<StarshipList onItemSelected={(itemId) => history.push(itemId)} />}
             right={<StarshipIntro />}
         />
     );

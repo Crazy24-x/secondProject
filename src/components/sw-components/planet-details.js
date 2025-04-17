@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import ItemDetails, { Record } from '../item-details'
-import { withSwapiService } from '../hoc-helpers'
+import ItemDetails, { Record } from "../item-details";
+import { withSwapiService } from "../hoc-helpers";
 
 const PlanetDetails = (props) => {
     return (
@@ -12,14 +12,14 @@ const PlanetDetails = (props) => {
             <Record field="climate" label="Climate" />
             <Record field="terrain" label="Terrain" />
         </ItemDetails>
-    )
-}
+    );
+};
 
 const mapMethodsToProps = (swapiService) => {
     return {
         getData: swapiService.getPlanet,
-        getImageUrl: swapiService.getPlanetImage
-    }
-}
+        getImageUrl: swapiService.getPlanetImage,
+    };
+};
 
-export default withSwapiService(mapMethodsToProps)(PlanetDetails)
+export default withSwapiService(mapMethodsToProps)(PlanetDetails);
